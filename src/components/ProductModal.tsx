@@ -69,8 +69,8 @@ export const ProductModal = ({ product, onClose, onAddToCart }: ProductModalProp
                   <p className="text-4xl font-black italic text-white">R {product.price.toLocaleString()}</p>
                 </div>
                 <div>
-                  <h4 className="text-[10px] font-bold uppercase tracking-widest text-brand mb-2">Availability</h4>
-                  <p className="text-lg font-bold text-ink bg-brand px-4 py-1 rounded-full inline-block">In Stock</p>
+                  <h4 className="text-[10px] font-bold uppercase tracking-widest text-brand mb-2">Condition</h4>
+                  <p className="text-sm font-bold text-ink bg-brand px-4 py-2 rounded-full inline-block uppercase tracking-widest">{product.condition || 'New'}</p>
                 </div>
               </div>
 
@@ -107,9 +107,9 @@ export const ProductModal = ({ product, onClose, onAddToCart }: ProductModalProp
                   <h4 className="text-xs font-bold uppercase tracking-widest text-brand">Technical Specs</h4>
                   <div className="grid grid-cols-1 gap-4">
                     {product.specs?.map((spec, i) => (
-                      <div key={i} className="flex justify-between items-center py-4 border-b border-white/10">
-                        <span className="text-sm font-bold text-gray-400 uppercase tracking-widest">{spec.split(':')[0]}</span>
-                        <span className="text-sm font-bold text-white">{spec.split(':')[1]}</span>
+                      <div key={i} className="flex items-center py-4 border-b border-white/10">
+                        <span className="w-2 h-2 bg-brand rounded-full mr-4" />
+                        <span className="text-sm font-bold text-white uppercase tracking-widest">{spec}</span>
                       </div>
                     ))}
                   </div>

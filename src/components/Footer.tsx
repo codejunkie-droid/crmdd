@@ -1,113 +1,43 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Instagram, Twitter, Github, Linkedin, ArrowUpRight } from 'lucide-react';
-import { Magnetic } from './Magnetic';
 
 export const Footer = () => {
   return (
-    <footer className="bg-ink text-white pt-32 pb-12 px-6 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-20 mb-32">
-          <div className="md:col-span-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+    <motion.footer 
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      className="py-12 px-6 border-t border-gray-100 bg-white/50 backdrop-blur-sm relative z-10"
+    >
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+        <Link to="/" className="flex items-center gap-2 group">
+          <div className="w-8 h-8 bg-ink rounded-lg flex items-center justify-center overflow-hidden relative">
+            <motion.div 
+              className="absolute inset-0 bg-brand opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            />
+            <span className="text-white group-hover:text-ink font-bold text-xl relative z-10 transition-colors duration-300">C</span>
+          </div>
+          <span className="font-bold text-xl tracking-tighter group-hover:text-brand transition-colors duration-300">crmtech.</span>
+        </Link>
+        
+        <div className="flex gap-8 text-sm font-medium text-gray-500">
+          {['Contact Support', 'Privacy Policy', 'Terms of Service'].map((item) => (
+            <Link 
+              key={item}
+              to={item === 'Contact Support' ? '/contact' : '#'} 
+              className="relative overflow-hidden group py-1"
             >
-              <div className="flex items-center gap-2 mb-8">
-                <div className="w-12 h-12 bg-brand rounded-xl flex items-center justify-center rotate-12">
-                  <span className="text-ink font-black text-3xl italic">C</span>
-                </div>
-                <span className="font-black text-4xl tracking-tighter italic text-white">crm.</span>
-              </div>
-              <h2 className="text-4xl md:text-6xl font-black italic tracking-tighter uppercase leading-none mb-8 relative group">
-                READY TO <br />
-                <span className="text-brand relative inline-block">
-                  UPGRADE?
-                  <motion.span 
-                    animate={{ 
-                      x: [-2, 2, -1, 0], 
-                      opacity: [0, 0.8, 0],
-                      skew: [0, 10, -10, 0]
-                    }}
-                    transition={{ duration: 0.15, repeat: Infinity, repeatDelay: 3 }}
-                    className="absolute inset-0 text-white -z-10 translate-x-2 mix-blend-overlay"
-                  >
-                    UPGRADE?
-                  </motion.span>
-                </span>
-              </h2>
-              <p className="text-gray-400 text-xl max-w-md leading-relaxed mb-12">
-                Join the elite circle of high-performance enthusiasts. Experience the future of hardware today.
-              </p>
-              <div className="flex gap-4">
-                {[Instagram, Twitter, Github, Linkedin].map((Icon, i) => (
-                  <Magnetic key={i} strength={0.4}>
-                    <button className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center hover:bg-brand hover:text-ink transition-all group">
-                      <Icon size={24} className="group-hover:scale-110 transition-transform" />
-                    </button>
-                  </Magnetic>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-
-          <div className="md:col-span-6 grid grid-cols-2 gap-12">
-            <div>
-              <h4 className="text-xs font-bold uppercase tracking-[0.5em] text-gray-500 mb-8">Navigation</h4>
-              <ul className="flex flex-col gap-4">
-                {['Laptops', 'Components', 'Storage', 'Networking', 'Security', 'Accessories', 'Upgrade Kits'].map(item => (
-                  <li key={item}>
-                    <button className="text-lg font-bold text-gray-400 hover:text-brand transition-colors flex items-center gap-2 group">
-                      {item}
-                      <ArrowUpRight size={16} className="opacity-0 group-hover:opacity-100 -translate-y-1 translate-x-1 transition-all" />
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-xs font-bold uppercase tracking-[0.5em] text-gray-500 mb-8">Company</h4>
-              <ul className="flex flex-col gap-4">
-                {['About Us', 'Support', 'Warranty', 'Shipping', 'Privacy Policy'].map(item => (
-                  <li key={item}>
-                    <button className="text-lg font-bold text-gray-400 hover:text-brand transition-colors flex items-center gap-2 group">
-                      {item}
-                      <ArrowUpRight size={16} className="opacity-0 group-hover:opacity-100 -translate-y-1 translate-x-1 transition-all" />
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+              <span className="relative z-10 group-hover:text-ink transition-colors duration-300">{item}</span>
+              <span className="absolute bottom-0 left-0 w-full h-[1px] bg-ink origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
+            </Link>
+          ))}
         </div>
 
-        <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8">
-          <p className="text-gray-500 text-sm font-medium">
-            © 2026 CRM TECHNOLOGY. ALL RIGHTS RESERVED.
-          </p>
-          <div className="flex gap-12">
-            <div className="flex flex-col items-end">
-              <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">Local Time</span>
-              <span className="font-mono text-sm">2026-03-28 16:26:13 UTC</span>
-            </div>
-            <div className="flex flex-col items-end">
-              <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">Status</span>
-              <span className="text-brand font-bold text-sm flex items-center gap-2">
-                <span className="w-2 h-2 bg-brand rounded-full animate-pulse" />
-                SYSTEMS OPERATIONAL
-              </span>
-            </div>
-          </div>
-        </div>
+        <p className="text-xs text-gray-400">
+          © 2026 CRM Technology. All rights reserved.
+        </p>
       </div>
-
-      {/* Background Decorative Text */}
-      <div className="absolute bottom-0 left-0 right-0 pointer-events-none select-none overflow-hidden h-64">
-        <span className="text-[25vw] font-black italic text-white/[0.02] tracking-tighter leading-none uppercase absolute -bottom-12 left-1/2 -translate-x-1/2 whitespace-nowrap">
-          CRM TECHNOLOGY
-        </span>
-      </div>
-    </footer>
+    </motion.footer>
   );
 };
