@@ -30,9 +30,10 @@ const SearchOverlay = ({ isOpen, onClose, query, onSearch, results, onProductCli
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
         transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-        className="fixed inset-0 z-[100] bg-white/98 backdrop-blur-3xl p-6 lg:p-20 overflow-y-auto"
+        className="fixed inset-0 z-[100] bg-ink/98 backdrop-blur-3xl p-6 lg:p-20 overflow-y-auto text-white"
       >
-        <div className="max-w-7xl mx-auto">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 pointer-events-none" />
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex justify-between items-center mb-20">
             <div className="flex items-center gap-6 flex-1 max-w-4xl">
               <motion.div
@@ -48,13 +49,13 @@ const SearchOverlay = ({ isOpen, onClose, query, onSearch, results, onProductCli
                 value={query}
                 onChange={(e) => onSearch(e.target.value)}
                 placeholder="Type to search hardware..." 
-                className="w-full bg-transparent border-none text-4xl lg:text-8xl font-black tracking-tighter italic focus:outline-none uppercase placeholder:text-gray-100"
+                className="w-full bg-transparent border-none text-4xl lg:text-8xl font-black tracking-tighter italic focus:outline-none uppercase placeholder:text-white/10 text-white"
               />
             </div>
             <Magnetic strength={0.3}>
               <button 
                 onClick={onClose}
-                className="w-20 h-20 bg-ink text-white rounded-full flex items-center justify-center hover:bg-brand hover:text-ink transition-all shadow-2xl group"
+                className="w-20 h-20 bg-white text-ink rounded-full flex items-center justify-center hover:bg-brand hover:text-ink transition-all shadow-[0_0_30px_rgba(193,255,0,0.2)] group"
               >
                 <X size={40} className="group-hover:rotate-90 transition-transform duration-500" />
               </button>
@@ -81,9 +82,9 @@ const SearchOverlay = ({ isOpen, onClose, query, onSearch, results, onProductCli
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.4 + i * 0.1 }}
                         onClick={() => { onProductClick(p); onClose(); }}
-                        className="text-3xl lg:text-4xl font-black italic text-left hover:text-brand transition-all uppercase tracking-tighter hover:translate-x-4 flex items-center gap-4 group"
+                        className="text-3xl lg:text-4xl font-black italic text-left hover:text-brand transition-all uppercase tracking-tighter hover:translate-x-4 flex items-center gap-4 group text-white"
                       >
-                        <span className="text-xs font-bold text-gray-200 group-hover:text-brand">0{i + 1}</span>
+                        <span className="text-xs font-bold text-white/20 group-hover:text-brand">0{i + 1}</span>
                         {p.name}
                       </motion.button>
                     ))}
@@ -102,22 +103,22 @@ const SearchOverlay = ({ isOpen, onClose, query, onSearch, results, onProductCli
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.5 + i * 0.1 }}
                         onClick={() => { onCategoryChange(c); onClose(); }}
-                        className="text-3xl lg:text-4xl font-black italic text-left hover:text-brand transition-all uppercase tracking-tighter hover:translate-x-4 flex items-center gap-4 group"
+                        className="text-3xl lg:text-4xl font-black italic text-left hover:text-brand transition-all uppercase tracking-tighter hover:translate-x-4 flex items-center gap-4 group text-white"
                       >
-                        <span className="text-xs font-bold text-gray-200 group-hover:text-brand">/</span>
+                        <span className="text-xs font-bold text-white/20 group-hover:text-brand">/</span>
                         {c}
                       </motion.button>
                     ))}
                   </div>
                 </div>
                 <div className="hidden lg:block">
-                  <div className="glass p-12 rounded-[3rem] relative overflow-hidden group">
-                    <h4 className="text-3xl font-black italic uppercase tracking-tighter mb-6 relative z-10">Elite Support</h4>
-                    <p className="text-gray-500 mb-8 relative z-10">Need help choosing the right hardware? Our experts are here 24/7.</p>
-                    <button className="bg-ink text-white px-8 py-4 rounded-full font-bold hover:bg-brand hover:text-ink transition-all relative z-10">
+                  <div className="bg-white/5 border border-white/10 p-12 rounded-[3rem] relative overflow-hidden group">
+                    <h4 className="text-3xl font-black italic uppercase tracking-tighter mb-6 relative z-10 text-white">Elite Support</h4>
+                    <p className="text-gray-400 mb-8 relative z-10">Need help choosing the right hardware? Our experts are here 24/7.</p>
+                    <button className="bg-brand text-ink px-8 py-4 rounded-full font-bold hover:bg-white transition-all relative z-10">
                       Chat with Expert
                     </button>
-                    <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-brand/10 blur-[60px] rounded-full group-hover:scale-150 transition-transform duration-1000" />
+                    <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-brand/20 blur-[60px] rounded-full group-hover:scale-150 transition-transform duration-1000" />
                   </div>
                 </div>
               </div>
@@ -130,20 +131,20 @@ const SearchOverlay = ({ isOpen, onClose, query, onSearch, results, onProductCli
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: i * 0.05 }}
                     onClick={() => { onProductClick(product); onClose(); }}
-                    className="glass p-8 rounded-[3rem] group cursor-pointer hover:shadow-2xl transition-all border border-transparent hover:border-brand/20"
+                    className="bg-white/5 p-8 rounded-[3rem] group cursor-pointer hover:shadow-[0_0_40px_rgba(193,255,0,0.1)] transition-all border border-white/10 hover:border-brand/50"
                   >
-                    <div className="h-48 mb-6 overflow-hidden rounded-[2rem] bg-surface flex items-center justify-center relative">
+                    <div className="h-48 mb-6 overflow-hidden rounded-[2rem] bg-ink flex items-center justify-center relative">
                       <img 
                         src={product.image} 
                         alt={product.name}
                         className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700 relative z-10"
                         referrerPolicy="no-referrer"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-br from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <div className="absolute inset-0 bg-gradient-to-br from-brand/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                     </div>
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2 block">{product.category}</span>
-                    <h3 className="text-xl font-black italic tracking-tighter uppercase mb-4 leading-none group-hover:text-brand transition-colors">{product.name}</h3>
-                    <span className="text-2xl font-black italic">R {product.price.toLocaleString()}</span>
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-brand mb-2 block">{product.category}</span>
+                    <h3 className="text-xl font-black italic tracking-tighter uppercase mb-4 leading-none group-hover:text-brand transition-colors text-white">{product.name}</h3>
+                    <span className="text-2xl font-black italic text-white">R {product.price.toLocaleString()}</span>
                   </motion.div>
                 ))}
                 {results.length === 0 && (
@@ -152,7 +153,7 @@ const SearchOverlay = ({ isOpen, onClose, query, onSearch, results, onProductCli
                       initial={{ scale: 0.9, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
                     >
-                      <h3 className="text-6xl font-black italic uppercase tracking-tighter mb-4">No results found</h3>
+                      <h3 className="text-6xl font-black italic uppercase tracking-tighter mb-4 text-white">No results found</h3>
                       <p className="text-gray-400 text-xl font-medium italic">Try searching for something else, like "Laptop" or "GPU".</p>
                     </motion.div>
                   </div>
@@ -176,7 +177,7 @@ export default function App() {
   const [currentCategory, setCurrentCategory] = useState('all');
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 2000);
+    const timer = setTimeout(() => setIsLoading(false), 2500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -220,61 +221,76 @@ export default function App() {
       <MouseTrail />
       <div className="min-h-screen selection:bg-brand selection:text-ink relative overflow-x-hidden">
       <div className="noise-overlay" />
+      <div className="fixed inset-0 pointer-events-none z-[50] bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%)] bg-[length:100%_4px] opacity-50 mix-blend-overlay" />
       <AnimatePresence mode="wait">
         {isLoading ? (
           <motion.div 
             key="loader"
-            initial={{ opacity: 1 }}
             exit={{ 
-              y: "-100%",
-              transition: { duration: 1, ease: [0.76, 0, 0.24, 1] }
+              opacity: 0,
+              scale: 1.1,
+              transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] }
             }}
             className="fixed inset-0 z-[100] bg-ink flex flex-col items-center justify-center overflow-hidden"
           >
-            <div className="relative overflow-hidden">
-              <motion.h1 
-                initial={{ y: "100%" }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-                className="text-white text-8xl md:text-[12rem] font-black tracking-tighter italic px-8 leading-none"
-              >
-                CRM.
-              </motion.h1>
-            </div>
+            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20 mix-blend-overlay" />
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%)] bg-[length:100%_4px] pointer-events-none" />
             
-            <div className="w-64 h-[1px] bg-white/10 mt-12 relative overflow-hidden">
-              <motion.div 
-                initial={{ x: "-100%" }}
-                animate={{ x: "100%" }}
-                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute inset-0 bg-brand"
-              />
-            </div>
+            <div className="relative z-10 flex flex-col items-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: [0, 1, 0.5, 1], scale: 1 }}
+                transition={{ duration: 0.5 }}
+                className="w-32 h-32 border-2 border-brand rounded-full flex items-center justify-center mb-12 relative"
+              >
+                <div className="absolute inset-0 border border-brand/30 rounded-full animate-ping" />
+                <div className="w-2 h-2 bg-brand rounded-full animate-pulse" />
+                <svg className="absolute inset-0 w-full h-full animate-spin-slow" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="10 20" className="text-brand/50" />
+                </svg>
+              </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-              className="mt-12 flex gap-4"
-            >
-              {['P', 'E', 'R', 'F', 'O', 'R', 'M', 'A', 'N', 'C', 'E'].map((char, i) => (
-                <motion.span
-                  key={i}
-                  animate={{ opacity: [0.2, 1, 0.2] }}
-                  transition={{ duration: 2, repeat: Infinity, delay: i * 0.1 }}
-                  className="text-brand text-[10px] font-bold tracking-widest"
+              <div className="font-mono text-brand text-sm md:text-base tracking-widest uppercase flex flex-col items-center gap-2">
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.2 }}
                 >
-                  {char}
-                </motion.span>
-              ))}
-            </motion.div>
-
-            {/* Background Decorative Circles */}
-            <motion.div 
-              animate={{ scale: [1, 1.2, 1], opacity: [0.05, 0.1, 0.05] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute w-[800px] h-[800px] border border-white/10 rounded-full"
-            />
+                  System Initialization...
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.6 }}
+                >
+                  Loading Core Modules [OK]
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1.0 }}
+                >
+                  Establishing Secure Uplink [OK]
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1.4 }}
+                  className="text-white font-black text-2xl mt-4"
+                >
+                  BEAST MODE ENGAGED
+                </motion.div>
+              </div>
+              
+              <div className="w-64 h-[2px] bg-white/10 mt-12 relative overflow-hidden">
+                <motion.div 
+                  initial={{ x: "-100%" }}
+                  animate={{ x: "0%" }}
+                  transition={{ duration: 1.8, ease: "circOut" }}
+                  className="absolute inset-0 bg-brand"
+                />
+              </div>
+            </div>
           </motion.div>
         ) : null}
       </AnimatePresence>
@@ -359,32 +375,36 @@ export default function App() {
             </section>
           </>
         ) : currentCategory === 'Support' ? (
-          <div className="pt-40 pb-20 px-6 max-w-7xl mx-auto">
-            <h2 className="text-7xl md:text-9xl font-black tracking-tighter italic uppercase mb-12">Support.</h2>
+          <div className="pt-40 pb-20 px-6 max-w-7xl mx-auto min-h-screen">
+            <h2 className="text-7xl md:text-9xl font-black tracking-tighter italic uppercase mb-12 text-ink">Support.</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <div className="glass p-12 rounded-[3rem]">
-                <h3 className="text-3xl font-black italic mb-6 uppercase">Technical Assistance</h3>
-                <p className="text-gray-500 text-lg mb-8">Our team of experts is ready to help you with any hardware or software issues.</p>
-                <button className="bg-ink text-white px-8 py-4 rounded-full font-bold hover:bg-brand hover:text-ink transition-all">
+              <div className="bg-ink p-12 rounded-[3rem] border border-white/10 relative overflow-hidden group">
+                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 pointer-events-none" />
+                <h3 className="text-3xl font-black italic mb-6 uppercase text-white relative z-10">Technical Assistance</h3>
+                <p className="text-gray-400 text-lg mb-8 relative z-10">Our team of experts is ready to help you with any hardware or software issues.</p>
+                <button className="bg-brand text-ink px-8 py-4 rounded-full font-black italic tracking-tighter uppercase hover:bg-white transition-all relative z-10 shadow-[0_0_20px_rgba(193,255,0,0.2)]">
                   Contact Support
                 </button>
+                <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-brand/10 blur-[80px] rounded-full group-hover:bg-brand/20 transition-colors duration-500" />
               </div>
-              <div className="glass p-12 rounded-[3rem]">
-                <h3 className="text-3xl font-black italic mb-6 uppercase">Warranty Claims</h3>
-                <p className="text-gray-500 text-lg mb-8">Fast and reliable warranty processing for all your CRM hardware.</p>
-                <button className="bg-ink text-white px-8 py-4 rounded-full font-bold hover:bg-brand hover:text-ink transition-all">
+              <div className="bg-ink p-12 rounded-[3rem] border border-white/10 relative overflow-hidden group">
+                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 pointer-events-none" />
+                <h3 className="text-3xl font-black italic mb-6 uppercase text-white relative z-10">Warranty Claims</h3>
+                <p className="text-gray-400 text-lg mb-8 relative z-10">Fast and reliable warranty processing for all your CRM hardware.</p>
+                <button className="bg-brand text-ink px-8 py-4 rounded-full font-black italic tracking-tighter uppercase hover:bg-white transition-all relative z-10 shadow-[0_0_20px_rgba(193,255,0,0.2)]">
                   Start a Claim
                 </button>
+                <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-brand/10 blur-[80px] rounded-full group-hover:bg-brand/20 transition-colors duration-500" />
               </div>
             </div>
           </div>
         ) : (
           <div className="pt-40 pb-20 px-6 max-w-7xl mx-auto min-h-screen">
             <div className="mb-12">
-              <h2 className="text-5xl font-black tracking-tighter italic uppercase mb-4">
+              <h2 className="text-5xl font-black tracking-tighter italic uppercase mb-4 text-ink">
                 {currentCategory}
               </h2>
-              <p className="text-gray-400 font-bold uppercase tracking-widest">{filteredProducts.length} Products Found</p>
+              <p className="text-gray-500 font-bold uppercase tracking-widest">{filteredProducts.length} Products Found</p>
             </div>
             
             {filteredProducts.length > 0 ? (
@@ -394,26 +414,26 @@ export default function App() {
                     key={product.id}
                     layoutId={`product-card-${product.id}`}
                     onClick={() => setSelectedProduct(product)}
-                    className="glass p-8 rounded-[3rem] group cursor-pointer hover:shadow-2xl transition-all relative overflow-hidden"
+                    className="bg-ink p-8 rounded-[3rem] group cursor-pointer hover:shadow-[0_0_40px_rgba(193,255,0,0.15)] transition-all relative overflow-hidden border border-white/5 hover:border-brand/30"
                   >
-                    <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-0 group-hover:opacity-5 transition-opacity pointer-events-none" />
-                    <div className="absolute inset-0 bg-gradient-to-br from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-                    <div className="h-64 mb-8 overflow-hidden rounded-[2rem] bg-surface flex items-center justify-center relative z-10">
+                    <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 group-hover:opacity-20 transition-opacity pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-brand/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                    <div className="h-64 mb-8 overflow-hidden rounded-[2rem] bg-white/5 flex items-center justify-center relative z-10">
                       <motion.img 
                         layoutId={`product-image-${product.id}`}
                         src={product.image} 
                         alt={product.name}
-                        className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700"
+                        className="w-full h-full object-contain p-4 group-hover:scale-110 transition-transform duration-700"
                         referrerPolicy="no-referrer"
                       />
                     </div>
-                    <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-gray-400 mb-2 block">{product.category}</span>
-                    <h3 className="text-2xl font-black italic tracking-tighter uppercase mb-4">{product.name}</h3>
-                    <div className="flex justify-between items-center">
-                      <span className="text-2xl font-black italic">R {product.price.toLocaleString()}</span>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-brand mb-2 block relative z-10">{product.category}</span>
+                    <h3 className="text-2xl font-black italic tracking-tighter uppercase mb-4 text-white relative z-10">{product.name}</h3>
+                    <div className="flex justify-between items-center relative z-10">
+                      <span className="text-2xl font-black italic text-white">R {product.price.toLocaleString()}</span>
                       <button 
                         onClick={(e) => { e.stopPropagation(); addToCart(product); }}
-                        className="w-12 h-12 bg-ink text-white rounded-full flex items-center justify-center hover:bg-brand hover:text-ink transition-all"
+                        className="w-12 h-12 bg-brand text-ink rounded-full flex items-center justify-center hover:bg-white transition-all shadow-[0_0_20px_rgba(193,255,0,0.2)]"
                       >
                         <ShoppingBag size={20} />
                       </button>
@@ -423,7 +443,7 @@ export default function App() {
               </div>
             ) : (
               <div className="text-center py-40">
-                <h3 className="text-4xl font-black italic uppercase tracking-tighter mb-4">No products found.</h3>
+                <h3 className="text-4xl font-black italic uppercase tracking-tighter mb-4 text-ink">No products found.</h3>
                 <p className="text-gray-500">Try adjusting your category filters.</p>
               </div>
             )}

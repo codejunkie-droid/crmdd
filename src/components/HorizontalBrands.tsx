@@ -15,6 +15,7 @@ export const HorizontalBrands = () => {
 
   return (
     <section ref={targetRef} className="relative h-[300vh] bg-ink">
+      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 mix-blend-overlay pointer-events-none" />
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         <motion.div style={{ x }} className="flex gap-24 px-24">
           {BRANDS.map((brand, i) => (
@@ -22,12 +23,12 @@ export const HorizontalBrands = () => {
               key={i}
               className="group relative flex items-center justify-center"
             >
-              <span className="text-[20vw] font-black italic tracking-tighter text-white/5 transition-colors group-hover:text-brand">
+              <span className="text-[20vw] font-black italic tracking-tighter text-white/5 transition-all duration-300 group-hover:text-brand group-hover:scale-110 group-hover:skew-x-[-10deg]">
                 {brand}
               </span>
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                <span className="text-4xl font-bold text-ink bg-brand px-8 py-4 rounded-full -rotate-12">
-                  ELITE PARTNER
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                <span className="text-4xl font-black italic text-ink bg-brand px-12 py-6 rounded-full -rotate-12 shadow-[0_0_40px_rgba(193,255,0,0.5)]">
+                  BEAST TIER
                 </span>
               </div>
             </div>

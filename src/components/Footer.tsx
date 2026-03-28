@@ -20,8 +20,22 @@ export const Footer = () => {
                 </div>
                 <span className="font-black text-4xl tracking-tighter italic text-white">crm.</span>
               </div>
-              <h2 className="text-4xl md:text-6xl font-black italic tracking-tighter uppercase leading-none mb-8">
-                READY TO <br /><span className="text-brand">UPGRADE?</span>
+              <h2 className="text-4xl md:text-6xl font-black italic tracking-tighter uppercase leading-none mb-8 relative group">
+                READY TO <br />
+                <span className="text-brand relative inline-block">
+                  UPGRADE?
+                  <motion.span 
+                    animate={{ 
+                      x: [-2, 2, -1, 0], 
+                      opacity: [0, 0.8, 0],
+                      skew: [0, 10, -10, 0]
+                    }}
+                    transition={{ duration: 0.15, repeat: Infinity, repeatDelay: 3 }}
+                    className="absolute inset-0 text-white -z-10 translate-x-2 mix-blend-overlay"
+                  >
+                    UPGRADE?
+                  </motion.span>
+                </span>
               </h2>
               <p className="text-gray-400 text-xl max-w-md leading-relaxed mb-12">
                 Join the elite circle of high-performance enthusiasts. Experience the future of hardware today.

@@ -54,8 +54,22 @@ export const BentoGrid = ({ onProductClick, onAddToCart }: BentoGridProps) => {
               <span className="h-[1px] w-12 bg-ink" />
               <span className="text-xs font-bold uppercase tracking-[0.5em] text-gray-400">Curated Selection</span>
             </div>
-            <h2 className="text-7xl md:text-[10rem] font-black tracking-tighter italic uppercase leading-[0.85] mb-8">
-              THE<br /><span className="text-brand">HARDWARE.</span>
+            <h2 className="text-7xl md:text-[10rem] font-black tracking-tighter italic uppercase leading-[0.85] mb-8 relative group">
+              THE<br />
+              <span className="text-brand relative inline-block">
+                HARDWARE.
+                <motion.span 
+                  animate={{ 
+                    x: [-2, 2, -1, 0], 
+                    opacity: [0, 0.8, 0],
+                    skew: [0, 10, -10, 0]
+                  }}
+                  transition={{ duration: 0.15, repeat: Infinity, repeatDelay: 3 }}
+                  className="absolute inset-0 text-ink -z-10 translate-x-2 mix-blend-overlay"
+                >
+                  HARDWARE.
+                </motion.span>
+              </span>
             </h2>
           </motion.div>
           <motion.div 
@@ -95,9 +109,10 @@ export const BentoGrid = ({ onProductClick, onAddToCart }: BentoGridProps) => {
                 <Magnetic strength={0.2}>
                   <button 
                     onClick={(e) => { e.stopPropagation(); onAddToCart(PRODUCTS[1]); }}
-                    className="bg-ink text-white px-10 py-5 rounded-full font-bold text-sm hover:bg-brand hover:text-ink transition-all shadow-2xl"
+                    className="bg-ink text-white px-10 py-5 rounded-full font-black italic tracking-tighter uppercase text-sm hover:bg-brand hover:text-ink transition-all shadow-2xl relative overflow-hidden group/btn"
                   >
-                    Add to Cart
+                    <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.2)_50%,transparent_75%)] bg-[length:250%_250%,100%_100%] bg-no-repeat bg-[position:-100%_0,0_0] group-hover/btn:animate-[shine_1s_ease-in-out]" />
+                    <span className="relative z-10">Add to Cart</span>
                   </button>
                 </Magnetic>
               </div>

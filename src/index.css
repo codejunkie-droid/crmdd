@@ -45,19 +45,24 @@
   50% { transform: translateY(-20px) rotate(2deg); }
 }
 
+@keyframes shine {
+  0% { background-position: -100% 0, 0 0; }
+  100% { background-position: 200% 0, 0 0; }
+}
+
 .animate-float {
   animation: float 8s ease-in-out infinite;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: var(--color-ink);
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-ink/10 rounded-full hover:bg-ink/20 transition-colors;
+  @apply bg-brand rounded-none hover:bg-white transition-colors;
 }
 
 /* Mask for smooth reveal */
