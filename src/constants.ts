@@ -5,109 +5,94 @@ export interface Product {
   price: number;
   image: string;
   description: string;
-  specs?: string[];
   color?: string;
   featured?: boolean;
-  rating?: number;
-  reviews?: number;
+  specs?: string[];
 }
-
-export const CATEGORIES = [
-  'Gaming PCs',
-  'Laptops',
-  'PC Components',
-  'Accessories'
-];
 
 export const PRODUCTS: Product[] = [
   {
-    id: '1',
-    name: 'CRM Apex Gaming PC',
-    category: 'Gaming PCs',
-    price: 25999,
-    image: 'https://images.unsplash.com/photo-1587202372634-32705e3bf49c?q=80&w=1000&auto=format&fit=crop',
-    description: 'High-performance gaming PC built for 1440p and 4K gaming. Features the latest RTX graphics and Ryzen processors.',
-    specs: ['AMD Ryzen 5 7600X', 'NVIDIA RTX 4070 12GB', '32GB DDR5 RAM', '1TB NVMe SSD'],
-    color: '#141414',
-    featured: true,
-    rating: 4.9,
-    reviews: 124
-  },
-  {
-    id: '2',
-    name: 'ASUS ROG Strix G15',
+    id: 'asus-tuf-a15-rtx2050',
+    name: 'ASUS TUF Gaming A15',
     category: 'Laptops',
-    price: 28999,
+    price: 18999,
     image: 'https://images.unsplash.com/photo-1603302576837-37561b2e2302?q=80&w=1000&auto=format&fit=crop',
-    description: 'Esports-ready gaming laptop with a blazing fast 300Hz display and liquid metal cooling.',
-    specs: ['Intel Core i7-13700H', 'RTX 4060 8GB', '16GB DDR5 RAM', '512GB NVMe SSD', '15.6" 300Hz FHD'],
-    rating: 4.8,
-    reviews: 89
+    description: 'AMD Ryzen™ 5 | NVIDIA GeForce RTX 2050 | 16GB DDR5 | 512GB SSD',
+    featured: true,
+    specs: ['AMD Ryzen 5', 'RTX 2050 4GB', '16GB DDR5', '512GB NVMe SSD']
   },
   {
-    id: '3',
-    name: 'Logitech G Pro X Superlight',
-    category: 'Accessories',
-    price: 2999,
-    image: 'https://images.unsplash.com/photo-1595225476474-87563907a212?q=80&w=1000&auto=format&fit=crop',
-    description: 'Ultra-lightweight wireless gaming mouse designed with pros. Less than 63 grams.',
-    specs: ['HERO 25K Sensor', 'LIGHTSPEED Wireless', '< 63g Weight', '70h Battery Life'],
-    rating: 4.9,
-    reviews: 342
-  },
-  {
-    id: '4',
-    name: 'NVIDIA GeForce RTX 4080 Super',
-    category: 'PC Components',
-    price: 22999,
-    image: 'https://images.unsplash.com/photo-1695056721201-078a656ef90b?q=80&w=1000&auto=format&fit=crop',
-    description: 'Beyond fast GPU for gamers and creators. Experience lifelike virtual worlds with ray tracing.',
-    specs: ['16GB GDDR6X', '10240 CUDA Cores', 'DLSS 3 Support', 'PCIe 4.0'],
-    rating: 4.7,
-    reviews: 56
-  },
-  {
-    id: '5',
-    name: 'CRM Titan Workstation',
-    category: 'Gaming PCs',
-    price: 45999,
-    image: 'https://images.unsplash.com/photo-1593640408182-31c70c8268f5?q=80&w=1000&auto=format&fit=crop',
-    description: 'Ultimate power for 3D rendering, video editing, and extreme gaming.',
-    specs: ['Intel Core i9-14900K', 'NVIDIA RTX 4090 24GB', '64GB DDR5 RAM', '4TB NVMe SSD'],
-    rating: 5.0,
-    reviews: 21
-  },
-  {
-    id: '6',
-    name: 'Razer BlackWidow V4 Pro',
-    category: 'Accessories',
-    price: 4499,
-    image: 'https://images.unsplash.com/photo-1595044426077-d36d9236d54a?q=80&w=1000&auto=format&fit=crop',
-    description: 'Full-blown battlestation keyboard with macro keys, command dial, and underglow.',
-    specs: ['Razer Green Mechanical Switches', 'Command Dial', '8 Dedicated Macro Keys', 'Magnetic Wrist Rest'],
-    rating: 4.6,
-    reviews: 112
-  },
-  {
-    id: '7',
-    name: 'AMD Ryzen 7 7800X3D',
-    category: 'PC Components',
-    price: 8999,
-    image: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?q=80&w=1000&auto=format&fit=crop',
-    description: 'The ultimate gaming processor with AMD 3D V-Cache technology for massive performance.',
-    specs: ['8 Cores / 16 Threads', '5.0 GHz Max Boost', '104MB Cache', '120W TDP'],
-    rating: 4.9,
-    reviews: 205
-  },
-  {
-    id: '8',
-    name: 'Lenovo Legion Pro 7i',
+    id: 'acer-aspire-3-i5',
+    name: 'Acer Aspire 3 12th Gen',
     category: 'Laptops',
-    price: 42999,
-    image: 'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?q=80&w=1000&auto=format&fit=crop',
-    description: 'AI-tuned gaming laptop with top-tier cooling and a stunning 16" WQXGA display.',
-    specs: ['Intel Core i9-13900HX', 'RTX 4080 12GB', '32GB DDR5 RAM', '1TB NVMe SSD', '16" 240Hz WQXGA'],
-    rating: 4.8,
-    reviews: 45
+    price: 8499,
+    image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=1000&auto=format&fit=crop',
+    description: 'Intel Core i5 1235U | 8GB RAM | 512GB SSD | 15.6" FHD',
+    specs: ['Intel Core i5-1235U', '8GB RAM', '512GB SSD', '15.6" Full HD']
+  },
+  {
+    id: 'wd-blue-sn580-1tb',
+    name: 'WD Blue SN580 1TB NVMe',
+    category: 'Storage',
+    price: 1499,
+    image: 'https://images.unsplash.com/photo-1597872200370-499de4613839?q=80&w=1000&auto=format&fit=crop',
+    description: 'Western Digital Blue SN580 1TB NVMe SSD Gen 4.0',
+    featured: true,
+    specs: ['1TB Capacity', 'NVMe PCIe Gen 4.0', 'Up to 4150MB/s', '5 Year Warranty']
+  },
+  {
+    id: 'rtx-4090-rog-strix',
+    name: 'ROG Strix GeForce RTX 4090',
+    category: 'Components',
+    price: 45999,
+    image: 'https://images.unsplash.com/photo-1591488320449-011701bb6704?q=80&w=1000&auto=format&fit=crop',
+    description: 'The ultimate GeForce GPU. It brings an enormous leap in performance, efficiency, and AI-powered graphics.',
+    featured: true,
+    specs: ['24GB GDDR6X', 'DLSS 3', 'Ray Tracing', 'Aura Sync']
+  },
+  {
+    id: 'ryzen-9-7950x-cpu',
+    name: 'AMD Ryzen 9 7950X',
+    category: 'Components',
+    price: 12499,
+    image: 'https://images.unsplash.com/photo-1591405351990-4726e331f141?q=80&w=1000&auto=format&fit=crop',
+    description: '16 Cores, 32 Threads, 5.7GHz Max Boost. The ultimate processor for gamers and creators.',
+    specs: ['16 Cores', '32 Threads', '5.7GHz Boost', 'AM5 Socket']
+  },
+  {
+    id: 'deco-x20-mesh',
+    name: 'TP-Link Deco X20 Mesh',
+    category: 'Networking',
+    price: 3499,
+    image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=1000&auto=format&fit=crop',
+    description: 'AX1800 Whole Home Mesh Wi-Fi 6 System (3-Pack)',
+    specs: ['Wi-Fi 6', 'AX1800', 'Seamless Roaming', 'Parental Controls']
+  },
+  {
+    id: 'tapo-c425-solar-kit',
+    name: 'Tapo C425 Solar Camera',
+    category: 'Security',
+    price: 2899,
+    image: 'https://images.unsplash.com/photo-1557862921-37829c790f19?q=80&w=1000&auto=format&fit=crop',
+    description: 'Solar-Powered Security Camera Kit by TP-Link',
+    specs: ['Solar Powered', '2K QHD', 'Color Night Vision', 'AI Detection']
+  },
+  {
+    id: 'gaming-chair-elite',
+    name: 'Elite Series Gaming Chair',
+    category: 'Accessories',
+    price: 4999,
+    image: 'https://images.unsplash.com/photo-1598550476439-6847785fce66?q=80&w=1000&auto=format&fit=crop',
+    description: 'Ergonomic high-back gaming chair with lumbar support and 4D armrests.',
+    specs: ['PU Leather', 'Class 4 Gas Lift', '180 Degree Recline', 'Memory Foam']
+  },
+  {
+    id: 'upgrade-kit-intel-i7',
+    name: 'Core i7 Upgrade Kit',
+    category: 'Upgrade Kits',
+    price: 8999,
+    image: 'https://images.unsplash.com/photo-1587202372775-e229f172b9d7?q=80&w=1000&auto=format&fit=crop',
+    description: 'Intel Core i7-13700K + Z790 Motherboard + 32GB DDR5 RAM',
+    specs: ['Intel i7-13700K', 'Z790 Chipset', '32GB DDR5 6000MHz', 'Pre-assembled']
   }
 ];
